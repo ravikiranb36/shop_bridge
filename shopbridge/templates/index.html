@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Shop Bridge</title>
+</head>
+<body>
+<div style="padding: 20px;">
+    <a href="/">Home</a>
+</div>
+<div style="padding: 20px;">
+    <a href="/products/view/">View products</a>
+</div>
+<div style="padding: 20px;">
+    <a href="/products/add/">Add a Product</a>
+</div>
+<div style="padding: 20px;">
+    <button onclick='toggle("prodcts_list");'>Edit or Delete Products</button>
+    <ul id="prodcts_list" style="display:none;">
+        {% for product in products %}
+        <li><a href="/products/edit/{{ product.pk }}">{{ product.name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+<script>
+    function toggle(id) {
+      var x = document.getElementById(id);
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+</script>
+</body>
+</html>
